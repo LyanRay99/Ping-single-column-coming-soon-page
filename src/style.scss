@@ -1,0 +1,161 @@
+//TODO: Reset CSS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//TODO: Mixin
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+//TODO: Body page
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .section {
+    @include size(60%, auto);
+    margin: auto;
+    // background-color: aqua;
+    color: rgb(177, 177, 177);
+
+    &__logo {
+      img {
+        margin: 50px auto 0px auto;
+      }
+    }
+
+    &__slogan {
+      font-size: 2.5em;
+      margin: 25px auto;
+      line-height: 1.5;
+      b {
+        color: black;
+      }
+
+      &__sup {
+        font-size: 0.6em;
+        color: rgb(97, 95, 95);
+      }
+    }
+
+    &__notify {
+      @include size(100%, auto);
+      display: inline-block;
+
+      &__input {
+        @include size(68%, 50px);
+        border-radius: 30px;
+        border: 2px solid rgba(177, 177, 177, 0.5);
+        color: rgba(0, 0, 0, 0.7);
+        outline: none;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        font-size: 1em;
+        float: left;
+
+        &:focus {
+          color: black;
+        }
+      }
+
+      &__btn {
+        @include size(30%, 50px);
+        border-radius: 30px;
+        border: none;
+        font-size: 1em;
+        margin-bottom: 10px;
+        background-color: rgb(74, 124, 242);
+        color: white;
+        box-shadow: 0px 0px 2px 2px rgb(228, 225, 225);
+        float: right;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &__warning {
+      margin: 0px 10px;
+      text-align: left;
+      font-style: italic;
+      color: rgba(255, 0, 0, 0.7);
+    }
+
+    &__content {
+      @include size(100%, auto);
+      margin: 50px auto;
+
+      &__img {
+        @include size(100%, auto);
+      }
+    }
+  }
+
+  .footer {
+    @include size(70%, auto);
+    margin: auto;
+    line-height: 2.5;
+
+    &__social {
+      .fa-brands {
+        @include size(30px, 30px);
+        line-height: 30px;
+        font-size: 0.8em;
+        border: 1px solid rgb(177, 177, 177);
+        border-radius: 50%;
+        color: rgb(74, 124, 242);
+
+        &:hover {
+          zoom: 1.1;
+          color: white;
+          background-color: rgb(74, 124, 242);
+        }
+      }
+
+      .fa-twitter {
+        margin: 0px 5px;
+      }
+    }
+    &__copyRight {
+      font-size: 0.8em;
+      color: rgb(205, 205, 205);
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    .section {
+      @include size(85%, auto);
+
+      &__slogan {
+        &__main {
+          font-size: 0.7em;
+        }
+
+        &__sup {
+          font-size: 0.5em;
+        }
+      }
+
+      &__notify {
+        @include size(100%, 120px);
+        display: block;
+
+        &__input {
+          @include size(100%, 50px);
+        }
+
+        &__btn {
+          @include size(100%, 50px);
+        }
+      }
+    }
+  }
+}
